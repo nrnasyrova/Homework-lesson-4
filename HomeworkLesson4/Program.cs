@@ -9,6 +9,7 @@ namespace HomeworkLesson4
         {
             // assignment1();
             // assignment2();
+            // assignment3();
             // assignment4();
             assignment5();
         }
@@ -34,6 +35,12 @@ namespace HomeworkLesson4
             Book book = new Book ("Harry Potter", "J.K.Rowling", "Harry's struggle against Lord Voldemort");
             book.Show();
         }
+
+        static void assignment3()
+        {
+            Scales scales = new Scales("Xiaomi", "white", 200);
+            scales.Weigh(160);
+        }
     
         static void assignment4()
         {
@@ -44,8 +51,8 @@ namespace HomeworkLesson4
 
         static void assignment5()
         {
-            Employee employee = new Employee("Yo", "Kim");
-            employee.CalculateSalary("manager", 3);
+            Employee employee = new Employee("Yo", "Kim", "manager", 2);
+            employee.CalculateSalary();
         }
 
     }

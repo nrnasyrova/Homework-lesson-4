@@ -40,7 +40,7 @@ namespace HomeworkLesson4Library
         }
     }
 
-    //classes for the 2ne assignment
+    //classes for the 2nd assignment
     public class Book
     {
         Title title = new Title();
@@ -119,9 +119,9 @@ namespace HomeworkLesson4Library
             }
         }
     }
-}
-//classes for the 4th assignment
-public class Converter
+
+    //classes for the 4th assignment
+    public class Converter
 {
     private double _usd;
     private double _eur;
@@ -168,71 +168,79 @@ public class Converter
     }
 }
 
+    //classes for the 5th assignment
 public class Employee
 {
     private string _name;
     private string _surname;
+    private string _position;
+    private int _experience;
     public string Position
     { 
         get
         {
-            return Position;
+            return _position;
         } 
         set
         {
-            if (Position != "manager" || Position != "administrator")
+            if (value != "manager" || value != "administrator")
             {
-                Console.WriteLine("This method calculates salary only for managers and admins");
+                Console.WriteLine("Position can only be manager or admin");
             }
             else
             {
-                Position = value;
+                _position = value;
             }
         }
         }
+
     public int Experience
     {
         get
         {
-            return Experience;
+            return _experience;
         }
 
         set
         {
-            if (Experience < 0)
+            if (value < 0)
             {
                 Console.WriteLine("Experience can not be less than 0 :)");
             }
-            else if (Experience > 82)
+            else if (value > 82)
             {
                 Console.WriteLine("Experience can not be more than 82");
             }
             else
             {
-                Experience = value;
+                _experience = value;
             }
         }
     }
 
-    public Employee(string name, string surname)
+    public Employee(string name, string surname, string position, int experience)
     {
         _name = name;
         _surname = surname;
+        _position = position;
+        _experience = experience;
     }
 
-    public void CalculateSalary(string position, int experience)
+    public void CalculateSalary()
     {
-        if (position.Equals("manager"))
+        if (Position.Equals("manager"))
         {
-            int salary = 1000 + 1000 * (experience * 5) / 100;
+            int salary = 1000 + 1000 * (Experience * 5) / 100;
             double taxes = (salary * 13/100) + (salary * 1/100);
-            Console.WriteLine($"Name: {_name}, surname: {_surname}, position: {position}, salary: {salary}, taxes: {Math.Round((taxes), 2)}");
+            Console.WriteLine($"Name: {_name}, surname: {_surname}, position: {Position}, salary: {salary}, taxes: {Math.Round((taxes), 2)}");
         }
-        if (position.Equals("administrator"))
+        if (Position.Equals("administrator"))
         {
-            int salary = 800 + 800 * (experience * 5) / 100;
+            int salary = 800 + 800 * (Experience * 5) / 100;
             double taxes = (salary * 13/100) + (salary * 1/100);
-            Console.WriteLine($"Name: {_name}, surname: {_surname}, position: {position}, salary: {salary}, taxes: {Math.Round((taxes), 2)}");
+            Console.WriteLine($"Name: {_name}, surname: {_surname}, position: {Position}, salary: {salary}, taxes: {Math.Round((taxes), 2)}");
         }
     }
 }
+}
+
